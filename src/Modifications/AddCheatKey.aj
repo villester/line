@@ -85,12 +85,12 @@ public aspect AddCheatKey{
 	
 	
 	
-	pointcut highlight(Graphics g, Color color, int slot, int y, boolean highlighted): 
-	call(void BoardPanel.drawChecker(Graphics,Color,int,int,boolean))&&args(g, color,slot,y,highlighted);
-	void around (Graphics g, Color color, int slot, int y, boolean highlighted):highlight(g,color,slot,y,highlighted){
+	//pointcut highlight(Graphics g, Color color, int slot, int y, boolean highlighted): 
+	//call(void BoardPanel.drawChecker(Graphics,Color,int,int,boolean))&&args(g, color,slot,y,highlighted);
+	//void around (Graphics g, Color color, int slot, int y, boolean highlighted):highlight(g,color,slot,y,highlighted){
 		
 	//return proceed(g, color, slot, y, true);
-	}
+	//}
 	
 	
 }
