@@ -45,7 +45,6 @@ public aspect AddSound {
 	boolean around(Player player): winAudio(player){
 		//boolean hn = proceed(player);
 		if (proceed(player) == true){
-			System.out.println("yey won"+player.name());
 			playAudio("applause.wav");
 			
 		}
