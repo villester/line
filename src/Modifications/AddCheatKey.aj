@@ -22,7 +22,7 @@ public aspect AddCheatKey{
 	static int secBoard[][] = {{9,9,9,9,9,9,9},{9,9,9,9,9,9,9},{9,9,9,9,9,9,9},{9,9,9,9,9,9,9},{9,9,9,9,9,9,9},{9,9,9,9,9,9,9}};
 	
 	
-	pointcut panel (BoardPanel board): target(board) && initialization(BoardPanel.new(Board, Game));
+	pointcut panel (BoardPanel board): target(board) && 	initialization(BoardPanel.new(Board, Game));
 		before(BoardPanel board) : panel(board){
 	ActionMap actionMap = board.getActionMap();
     int condition = JComponent.WHEN_IN_FOCUSED_WINDOW;
