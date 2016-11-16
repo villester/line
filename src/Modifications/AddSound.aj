@@ -43,7 +43,6 @@ public aspect AddSound {
 	
 	pointcut winAudio(Player player) : call(boolean Board.isWonBy(Player)) && args(player);
 	boolean around(Player player): winAudio(player){
-		//boolean hn = proceed(player);
 		if (proceed(player) == true){
 			playAudio("applause.wav");
 			
