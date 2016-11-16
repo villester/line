@@ -3,14 +3,18 @@ import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
+
+import c4.base.Ai;
 import c4.base.BoardPanel;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.Callable;
 import c4.base.C4Dialog;
+import c4.base.RandomBot;
 
-<<<<<<< HEAD
+
 privileged public aspect AddStrategy { 
+	Ai create;
 	JComboBox dropDown;
 	
 	pointcut createBox(C4Dialog opt) : execution (JPanel C4Dialog.makeControlPanel())&&this(opt);
@@ -31,28 +35,15 @@ privileged public aspect AddStrategy {
 	after(C4Dialog opt) returning : initGame(opt){
 		String selection = (String) dropDown.getSelectedItem();
 		if (selection.equals("Human")){
-			
+			return;
 		}else if(selection.equals("CPU Random")){
-			
+			create = new RandomBot();
 		}else if(selection.equals("CPU Smart")){
-			
-		}
-=======
-public privileged aspect AddStrategy { 
-	public JComboBox comboBox;
-	pointcut createBox(C4Dialog opt): execution (JPanel C4Dialog.makeControlPanel())&&this(opt);
-	
-	JPanel around(C4Dialog opt): createBox(opt){
-		JPanel content = proceed(opt);
-		JPanel buttons = (JPanel) opt.playButton.getParent();
-		String[] options = {"human","Random","Smart"};
-		comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(options));
-		comboBox.setBounds(400, 300, 100, 20);
-		buttons.add(comboBox,BorderLayout.WEST);
-		return content;
->>>>>>> origin/master
 		
 	}
+		create.initGame();
+	}
+	
 	
 }
+
